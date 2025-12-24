@@ -1,0 +1,9 @@
+﻿RewriteEngine On
+
+# Serve existing files/folders directly (assets etc.)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Otherwise route everything to index.php
+RewriteRule ^ index.php [L]
