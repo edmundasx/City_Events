@@ -1,13 +1,10 @@
-﻿<?php
-declare(strict_types=1);
-
-namespace App\Controllers;
-
+<?php
 final class HomeController
 {
-  public function index(): void
-  {
-    // Later you will render a view here (from src/Views)
-    echo "CityEvents MVC is running.";
-  }
+    function index(): void
+    {
+        $title = "Home";
+        $view = __DIR__ . "/../Views/pages/home.php";
+        require __DIR__ . "/../Views/layouts/main.php";
+    }
 }
