@@ -1,13 +1,15 @@
-<footer style="border-top: 1px solid #e5e7eb; padding: 2rem 1.5rem; background: white;">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
-        <div style="color: #6b7280; font-size: 0.9rem;">
-            © <?= date("Y") ?> CityEvents. Visos teisės saugomos.
-        </div>
+<footer class="bg-white border-t border-[#e5e7eb]">
+  <div class="max-w-[1200px] mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-2">
+    <p class="text-sm text-[#6b7280]">
+      © <?= date("Y") ?> City Events. Visos teisės saugomos.
+    </p>
 
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="/#help" style="color: #6b7280; text-decoration: none;">Pagalba</a>
-            <a href="/privacy" style="color: #6b7280; text-decoration: none;">Privatumas</a>
-            <a href="/terms" style="color: #6b7280; text-decoration: none;">Taisyklės</a>
-        </div>
+    <div class="flex gap-4 text-sm">
+      <a href="#help" class="text-[#6b7280] hover:text-[#ff6b35] transition-colors no-underline">Pagalba</a>
+      <a href="#create" class="text-[#6b7280] hover:text-[#ff6b35] transition-colors no-underline">Sukurti renginį</a>
     </div>
+  </div>
+
+  <!-- Your JS (keep path correct) -->
+  <script src="<?= $base ?>/assets/js/script.js"></script>
 </footer>
