@@ -7,7 +7,7 @@
   <title><?= $title ??
       "City Events – Atrask renginius, kurie tau patinka" ?></title>
   <meta name="description" content="Rask ir dalyvauk renginiuose, naršyk organizatorius arba sukurk savo renginį.">
-  <link rel="stylesheet" href="<?= $base ?>/assets/css/style.css">
+  <link rel="stylesheet" href="<?= $base ?>/assets/css/tailwind.css">
 </head>
 <body>
 
