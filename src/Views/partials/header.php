@@ -1,66 +1,34 @@
-<?php
-// header.php (partial)
-// Assumes $base is defined in your layout (main.php) and points to your app base URL.
-// Example: $base = '/cityevents/public'; or '' if hosted at domain root.
-?>
-<header class="sticky top-0 z-[100] bg-white border-b border-gray-200 shadow-sm">
-  <div class="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-    <!-- Left: logo + nav -->
-    <div class="flex items-center gap-8">
-      <a href="<?= $base ?>/index.php" class="text-2xl font-bold text-[#ff6b35] no-underline">
+<?php $base = $base ?? ""; ?>
+
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+  <div class="mx-auto max-w-6xl px-4">
+    <div class="flex h-16 items-center justify-between gap-4">
+
+      <a href="<?= $base ?>/home" class="text-xl font-extrabold text-brand">
         CityEvents
       </a>
 
-      <nav class="hidden md:flex items-center gap-8">
-        <a
-          href="<?= $base ?>/index.php#events"
-          title="Renginiai – pagrindinė renginių peržiūra"
-          class="text-gray-800 font-medium hover:text-[#ff6b35] transition-colors"
-        >
-          Renginiai
-        </a>
-
-        <a
-          href="<?= $base ?>/city-map.php"
-          title="Žemėlapis – vizualus renginių žemėlapis"
-          class="text-gray-800 font-medium hover:text-[#ff6b35] transition-colors"
-        >
-          Žemėlapis
-        </a>
-
-        <a
-          href="<?= $base ?>/for-organizers.php"
-          title="Organizatoriams – informacija renginių organizatoriams"
-          class="text-gray-800 font-medium hover:text-[#ff6b35] transition-colors"
-        >
-          Organizatoriams
-        </a>
-
-        <a
-          href="<?= $base ?>/help-center.php"
-          title="Pagalba – DUK ir pagalbos centras"
-          class="text-gray-800 font-medium hover:text-[#ff6b35] transition-colors"
-        >
-          Pagalba
-        </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-700">
+        <a class="hover:text-brand transition" href="<?= $base ?>/home#events">Renginiai</a>
+        <a class="hover:text-brand transition" href="<?= $base ?>/create">Sukurti renginį</a>
+        <a class="hover:text-brand transition" href="<?= $base ?>/admin">Admin</a>
+        <a class="hover:text-brand transition" href="<?= $base ?>/home#help">Pagalba</a>
       </nav>
-    </div>
 
-    <!-- Right: auth buttons -->
-    <div class="flex items-center gap-2" id="authActions">
-      <a
-        class="btn btn-outline js-login-trigger inline-flex items-center justify-center rounded-lg px-6 py-2 font-semibold text-gray-800 border-2 border-gray-200 hover:border-[#ff6b35] hover:text-[#ff6b35] transition-colors"
-        href="#login"
-      >
-        Prisijungti
-      </a>
+      <div class="flex items-center gap-2">
+        <a href="<?= $base ?>/login"
+           class="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold
+                  border border-slate-300 text-slate-800 hover:border-brand hover:text-brand transition">
+          Prisijungti
+        </a>
 
-      <a
-        class="btn btn-primary js-signup-trigger inline-flex items-center justify-center rounded-lg px-6 py-2 font-semibold text-white bg-[#ff6b35] hover:bg-[#e85a2a] transition-colors"
-        href="#signup"
-      >
-        Registruotis
-      </a>
+        <a href="<?= $base ?>/signup"
+           class="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold
+                  bg-brand text-white hover:bg-brand/90 transition shadow-sm">
+          Registruotis
+        </a>
+      </div>
+
     </div>
   </div>
 </header>
