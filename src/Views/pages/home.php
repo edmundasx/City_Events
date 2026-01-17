@@ -60,6 +60,9 @@ $container = "container-ce";
 
     <button type="button" class="section-action">Peržiūrėti visus</button>
   </div>
+  <?php echo "<pre>events passed to view: " .
+      count($events ?? []) .
+      "</pre>"; ?>
 
 <?php
 $gridId = "eventsGrid";
@@ -71,6 +74,5 @@ $basePath = ($base ?? "") . "/events";
 $events = $events ?? [];
 
 require __DIR__ . "/../partials/events-grid.php";
-
-
 ?>
+</section>
