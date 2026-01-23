@@ -60,19 +60,25 @@ $container = "container-ce";
 
     <button type="button" class="section-action">Peržiūrėti visus</button>
   </div>
-  <?php echo "<pre>events passed to view: " .
-      count($events ?? []) .
-      "</pre>"; ?>
 
-<?php
-$gridId = "eventsGrid";
-$gridClass = "events-grid";
-$emptyText = "Renginiai nerasti";
-$basePath = ($base ?? "") . "/events";
+  <?php
+  $gridId = "eventsGrid";
+  $gridClass = "events-grid";
+  $emptyText = "Renginiai nerasti";
+  $basePath = ($base ?? "") . "/events";
+  $events = $events ?? [];
 
-// safety
-$events = $events ?? [];
+  $partial = __DIR__ . "/../partials/events-grid.php";
 
-require __DIR__ . "/../partials/events-grid.php";
-?>
+  // diagnostika į source (nematoma UI)
+  echo "<!-- PARTIAL: {$partial} exists=" .
+      (is_file($partial) ? "yes" : "no") .
+      " -->";
+
+  if (!is_file($partial)) {
+      throw new RuntimeException("Missing partial: " . $partial);
+  }
+
+  require $partial;
+  ?>
 </section>
