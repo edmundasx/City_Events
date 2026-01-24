@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@source inline("events-grid");
 
 @theme {
     --color-brand: #ff6b35; /* single global token */
@@ -92,9 +93,6 @@
     .muted {
         @apply text-slate-600;
     }
-    .events-grid {
-        @apply mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3;
-    }
     /* layout */
     .container-ce {
         @apply mx-auto max-w-6xl px-4;
@@ -145,6 +143,30 @@
     }
     .footer-link {
         @apply text-slate-500 hover:text-brand transition-colors no-underline;
+    }
+
+    .events-grid {
+        @apply grid grid-cols-1 gap-6 items-stretch
+             sm:grid-cols-2
+             lg:grid-cols-3;
+    }
+    .event-card {
+        @apply block overflow-hidden rounded-2xl bg-white ring-1 ring-black/5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg;
+    }
+    .event-media {
+        @apply relative h-48 w-full overflow-hidden bg-slate-200;
+    }
+    .event-image {
+        @apply h-full w-full object-cover;
+    }
+    .event-content {
+        @apply p-4;
+    }
+    .event-title {
+        @apply text-base font-semibold text-slate-900;
+    }
+    .event-meta {
+        @apply mt-2 space-y-1 text-sm text-slate-600;
     }
 }
 
