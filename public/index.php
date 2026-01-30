@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 declare(strict_types=1);
 
 ini_set("display_errors", "1");
@@ -56,12 +55,3 @@ try {
     echo $e->getTraceAsString();
     echo "</pre>";
 }
-=======
-session_start();
-require __DIR__ . "/../src/Controllers/HomeController.php";
-$base = rtrim(dirname($_SERVER["SCRIPT_NAME"]), "/\\");
-$base = $base === "" ? "" : $base;
-
-$controller = new HomeController();
-$controller->index();
->>>>>>> e917266ee7c9fbc65838c93fad57ffe2da735dfc
