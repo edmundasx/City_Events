@@ -1,0 +1,176 @@
+@import "tailwindcss";
+@source inline("events-grid");
+
+@theme {
+    --color-brand: #ff6b35; /* single global token */
+}
+
+@layer components {
+    .container-ce {
+        @apply mx-auto max-w-6xl px-4;
+    }
+
+    .section {
+        @apply pb-16;
+    }
+    .section-pad {
+        @apply py-10;
+    }
+    .section-head {
+        @apply flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between;
+    }
+    .section-title {
+        @apply text-2xl font-extrabold text-slate-900;
+    }
+    .section-subtitle {
+        @apply mt-1 text-slate-600;
+    }
+    .section-action {
+        @apply mt-3 inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold
+               border border-slate-300 text-slate-800 hover:border-brand hover:text-brand transition sm:mt-0;
+    }
+
+    /* hero */
+    .hero {
+        @apply relative overflow-hidden bg-brand text-white;
+    }
+    .hero-inner {
+        @apply relative py-14;
+    }
+    .hero-content {
+        @apply mx-auto max-w-2xl text-center;
+    }
+    .hero-title {
+        @apply text-3xl font-extrabold leading-tight md:text-5xl;
+    }
+    .hero-lead {
+        @apply mt-4 text-white/90 md:text-lg;
+    }
+
+    /* hero glow (no Tailwind arbitrary in PHP) */
+    .hero-glow {
+        position: absolute;
+        inset: 0;
+        opacity: 0.2;
+        background-image: radial-gradient(
+            circle at top,
+            rgba(255, 255, 255, 1),
+            transparent 55%
+        );
+    }
+
+    /* search */
+    .search-wrap {
+        @apply mx-auto mt-8 max-w-3xl;
+    }
+    .search-bar {
+        @apply flex flex-col gap-3 rounded-2xl bg-white/10 p-3 backdrop-blur md:flex-row;
+    }
+    .search-input {
+        @apply w-full rounded-xl bg-white/90 px-4 py-3 text-slate-900 placeholder:text-slate-500
+               outline-none ring-0 focus:ring-4 focus:ring-white/30;
+    }
+    .search-btn {
+        @apply w-full md:w-auto rounded-xl bg-white px-5 py-3 font-bold text-brand hover:bg-white/90 transition;
+    }
+
+    /* categories */
+    .cats-grid {
+        @apply grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-6;
+    }
+    .cat-btn {
+        @apply flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left
+               font-semibold text-slate-800 hover:border-brand hover:text-brand transition;
+    }
+
+    /* cards & grids */
+    .card {
+        @apply rounded-2xl border border-slate-200 bg-white;
+    }
+    .card-pad {
+        @apply p-6;
+    }
+    .muted {
+        @apply text-slate-600;
+    }
+    /* layout */
+    .container-ce {
+        @apply mx-auto max-w-6xl px-4;
+    }
+
+    /* header */
+    .site-header {
+        @apply sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200;
+    }
+    .header-row {
+        @apply flex h-16 items-center justify-between gap-4;
+    }
+    .logo {
+        @apply text-xl font-extrabold text-brand no-underline;
+    }
+    .nav {
+        @apply hidden md:flex items-center gap-6 text-sm font-semibold;
+    }
+    .nav-link {
+        @apply text-slate-700 hover:text-brand transition no-underline;
+    }
+
+    /* buttons */
+    .btn {
+        @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition;
+    }
+
+    .btn-primary {
+        @apply bg-brand text-white hover:bg-brand/90 shadow-sm;
+    }
+
+    .btn-outline {
+        @apply border border-slate-300 text-slate-800 hover:border-brand hover:text-brand;
+    }
+
+    /* footer */
+    .site-footer {
+        @apply mt-16 bg-white border-t border-slate-200;
+    }
+    .footer-row {
+        @apply py-6 flex flex-col md:flex-row items-center justify-between gap-2;
+    }
+    .footer-text {
+        @apply text-sm text-slate-500;
+    }
+    .footer-links {
+        @apply flex gap-4 text-sm;
+    }
+    .footer-link {
+        @apply text-slate-500 hover:text-brand transition-colors no-underline;
+    }
+
+    .events-grid {
+        @apply grid grid-cols-1 gap-6 items-stretch
+             sm:grid-cols-2
+             lg:grid-cols-3;
+    }
+    .event-card {
+        @apply block overflow-hidden rounded-2xl bg-white ring-1 ring-black/5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg;
+    }
+    .event-media {
+        @apply relative h-48 w-full overflow-hidden bg-slate-200;
+    }
+    .event-image {
+        @apply h-full w-full object-cover;
+    }
+    .event-content {
+        @apply p-4;
+    }
+    .event-title {
+        @apply text-base font-semibold text-slate-900;
+    }
+    .event-meta {
+        @apply mt-2 space-y-1 text-sm text-slate-600;
+    }
+}
+
+/* Scan your PHP views so classes are detected */
+@source "../../../src/**/*.php";
+@source "../../../public/**/*.php";
+@source "../../../src/**/*.html";
