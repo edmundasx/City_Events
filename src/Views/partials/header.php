@@ -7,7 +7,7 @@
 
       <nav class="nav">
         <a class="nav-link" href="<?= $base ?>/home#events">Renginiai</a>
-        <a class="nav-link" href="<?= $base ?>/admin">Žemėlapis</a>
+        <a class="nav-link" href="<?= $base ?>/map">Žemėlapis</a>
         <a class="nav-link" href="<?= $base ?>/create">Organizatoriams</a>
         <a class="nav-link" href="<?= $base ?>/home#help">Pagalba</a>
       </nav>
