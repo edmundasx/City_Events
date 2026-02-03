@@ -1,32 +1,26 @@
 <?php
-// src/Views/pages/map.php
-$events = $events ?? [];
-$filters = $filters ?? [];
+declare(strict_types=1);
+
+/**
+ * VIEW ONLY (no layout, no header/footer).
+ * Layout main.php already wraps this view inside <main> and includes header/footer.
+ */
+
+// Optional: if partials need data, define/validate it here (or in controller)
+$partialsDir = __DIR__ . "/../partials/map";
+
+// If you want to fail fast with a clear message (dev only):
+$required = ["breadcrumbs", "hero", "filters", "results", "map"];
+foreach ($required as $name) {
+    $file = $partialsDir . "/" . $name . ".php";
+    if (!is_file($file)) {
+        throw new RuntimeException("Missing map partial: {$file}");
+    }
+}
 ?>
 
-<div class="bg-slate-950 text-slate-100">
-  <div class="container-ce py-6">
-
-    <?php require __DIR__ . "/../partials/map/breadcrumbs.php"; ?>
-
-    <?php require __DIR__ . "/../partials/map/hero.php"; ?>
-
-    <section class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-[280px_minmax(0,1fr)_360px]">
-      <!-- Filters -->
-      <aside class="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
-        <?php require __DIR__ . "/../partials/map/filters.php"; ?>
-      </aside>
-
-      <!-- Results -->
-      <section class="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
-        <?php require __DIR__ . "/../partials/map/results.php"; ?>
-      </section>
-
-      <!-- Map -->
-      <aside class="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
-        <?php require __DIR__ . "/../partials/map/map.php"; ?>
-      </aside>
-    </section>
-
-  </div>
-</div>
+<?php require $partialsDir . "/breadcrumbs.php"; ?>
+<?php require $partialsDir . "/hero.php"; ?>
+<?php require $partialsDir . "/filters.php"; ?>
+<?php require $partialsDir . "/results.php"; ?>
+<?php require $partialsDir . "/map.php"; ?>

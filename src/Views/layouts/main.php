@@ -22,9 +22,6 @@
   ?>
 </main>
 
-<?php
-// If you want exact match, keep footer empty or remove this include
-?>
 <?php require __DIR__ . "/../partials/footer.php"; ?>
 
 <script src="<?= $base ?>/assets/js/script.js"></script>
