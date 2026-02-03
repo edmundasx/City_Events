@@ -1,17 +1,10 @@
 <?php
 // src/Views/pages/map.php
-$base = $base ?? "";
-$title = $title ?? "Žemėlapis – CityEvents";
-
-$events = $events ?? []; // array of events: id,title,location,event_date,event_time,price_eur,is_free,lat,lng,cover_image
+$events = $events ?? [];
 $filters = $filters ?? [];
-
-// optional: current filters from controller/query
 ?>
 
-<?php require __DIR__ . "/../partials/header.php"; ?>
-
-<main class="bg-slate-950 text-slate-100">
+<div class="bg-slate-950 text-slate-100">
   <div class="container-ce py-6">
 
     <?php require __DIR__ . "/../partials/map/breadcrumbs.php"; ?>
@@ -36,6 +29,4 @@ $filters = $filters ?? [];
     </section>
 
   </div>
-</main>
-
-<?php require __DIR__ . "/../partials/footer.php"; ?>
+</div>
