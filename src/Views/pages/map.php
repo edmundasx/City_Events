@@ -22,12 +22,12 @@ foreach ($required as $name) {
 }
 ?>
 
-<section class="bg-[#0f0f10] text-slate-100">
-    <div class="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8 lg:px-6">
+<section class="map-page">
+    <div class="map-page-inner">
         <?php require $partialsDir . "/breadcrumbs.php"; ?>
         <?php require $partialsDir . "/hero.php"; ?>
 
-        <div class="grid grid-cols-1 gap-6 lg:grid-cols-[260px_1fr_360px]">
+        <div class="map-layout">
             <?php require $partialsDir . "/filters.php"; ?>
             <?php require $partialsDir . "/results.php"; ?>
             <?php require $partialsDir . "/map.php"; ?>

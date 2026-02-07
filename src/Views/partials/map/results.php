@@ -1,23 +1,23 @@
-<section id="resultsWrap" class="space-y-4 text-sm text-slate-300">
-    <p class="text-xs text-slate-400">Rasta <span id="resultCount"><?= isset($events)
+<section id="resultsWrap" class="map-results">
+    <p class="map-results-meta">Rasta <span id="resultCount"><?= isset($events)
         ? count($events)
         : 0 ?></span> renginių</p>
 
     <?php if (!empty($events)): ?>
-        <div class="space-y-3">
+        <div class="map-results-list">
             <?php foreach ($events as $event): ?>
                 <article
-                    class="rounded-xl border border-white/10 bg-white/5 p-4"
+                    class="map-result-card"
                     data-event-card="1"
                     data-event-id="<?= htmlspecialchars((string) ($event["id"] ?? "")) ?>"
                 >
-                    <h3 class="text-sm font-semibold text-white">
+                    <h3 class="map-result-title">
                         <?= htmlspecialchars($event["title"] ?? "Renginys") ?>
                     </h3>
-                    <p class="mt-1 text-xs text-slate-400">
+                    <p class="map-result-location">
                         <?= htmlspecialchars($event["location"] ?? "Vieta") ?>
                     </p>
-                    <p class="mt-2 text-xs text-slate-500">
+                    <p class="map-result-date">
                         <?= htmlspecialchars(
                             ($event["date"] ?? ($event["event_date"] ?? "")) .
                                 " " .
@@ -29,7 +29,7 @@
             <?php endforeach; ?>
         </div>
     <?php else: ?>
-        <div class="rounded-xl border border-white/10 bg-white/5 px-4 py-10 text-center text-xs text-slate-400">
+        <div class="map-results-empty">
             Šiuo metu renginių nėra.
         </div>
     <?php endif; ?>

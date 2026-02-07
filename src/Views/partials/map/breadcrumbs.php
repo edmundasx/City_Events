@@ -1,22 +1,22 @@
-<nav class="text-xs text-slate-400">
-    <ol class="flex flex-wrap items-center gap-2">
+<nav class="map-breadcrumbs">
+    <ol class="map-breadcrumbs-list">
         <li>
-            <a class="transition hover:text-orange-400" href="<?= $base ??
+            <a class="map-breadcrumb-link" href="<?= $base ??
                 "/" ?>">Pradžia</a>
         </li>
-        <li class="text-slate-600">/</li>
+        <li class="map-breadcrumb-separator">/</li>
         <li>
-            <a class="transition hover:text-orange-400" href="<?= ($base ??
+            <a class="map-breadcrumb-link" href="<?= ($base ??
                 "") .
                 "/map" ?>">Lietuva</a>
         </li>
-        <li class="text-slate-600">/</li>
+        <li class="map-breadcrumb-separator">/</li>
         <li>
-            <a class="transition hover:text-orange-400" href="<?= ($base ??
+            <a class="map-breadcrumb-link" href="<?= ($base ??
                 "") .
                 "/map" ?>">Vilnius</a>
         </li>
-        <li class="text-slate-600">/</li>
-        <li class="text-orange-400">Renginiai šį savaitgalį</li>
+        <li class="map-breadcrumb-separator">/</li>
+        <li class="map-breadcrumb-current">Renginiai šį savaitgalį</li>
     </ol>
 </nav>

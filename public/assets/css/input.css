@@ -49,14 +49,7 @@
 
     /* hero glow (no Tailwind arbitrary in PHP) */
     .hero-glow {
-        position: absolute;
-        inset: 0;
-        opacity: 0.2;
-        background-image: radial-gradient(
-            circle at top,
-            rgba(255, 255, 255, 1),
-            transparent 55%
-        );
+        @apply absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,rgba(255,255,255,1),transparent_55%)];
     }
 
     /* search */
@@ -81,6 +74,12 @@
     .cat-btn {
         @apply flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-left
                font-semibold text-slate-800 hover:border-brand hover:text-brand transition;
+    }
+    .cat-icon {
+        @apply text-xl;
+    }
+    .cat-label {
+        @apply text-sm;
     }
 
     /* cards & grids */
@@ -165,8 +164,155 @@
     .event-title {
         @apply text-base font-semibold text-slate-900;
     }
+    .event-price {
+        @apply absolute bottom-3 right-3 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-900 shadow;
+    }
     .event-meta {
         @apply mt-2 space-y-1 text-sm text-slate-600;
+    }
+    .event-datetime {
+        @apply text-slate-700;
+    }
+    .event-location {
+        @apply text-slate-500;
+    }
+    .events-empty {
+        @apply rounded-2xl border border-slate-200 bg-white p-6 text-center text-sm text-slate-500;
+    }
+    .event-image--placeholder {
+        @apply h-full w-full bg-slate-200;
+    }
+
+    .header-actions {
+        @apply flex items-center gap-2;
+    }
+
+    .footer-container {
+        @apply max-w-[1200px] mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-2;
+    }
+
+    /* map page */
+    .map-page {
+        @apply bg-[#0f0f10] text-slate-100;
+    }
+    .map-page-inner {
+        @apply mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-8 lg:px-6;
+    }
+    .map-layout {
+        @apply grid grid-cols-1 gap-6 lg:grid-cols-[260px_1fr_360px];
+    }
+
+    .map-breadcrumbs {
+        @apply text-xs text-slate-400;
+    }
+    .map-breadcrumbs-list {
+        @apply flex flex-wrap items-center gap-2;
+    }
+    .map-breadcrumb-link {
+        @apply transition hover:text-orange-400;
+    }
+    .map-breadcrumb-separator {
+        @apply text-slate-600;
+    }
+    .map-breadcrumb-current {
+        @apply text-orange-400;
+    }
+
+    .map-hero {
+        @apply rounded-2xl border border-white/10 bg-[#141414] px-6 py-5 shadow-[0_0_0_1px_rgba(255,255,255,0.02)];
+    }
+    .map-hero-row {
+        @apply flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between;
+    }
+    .map-hero-title {
+        @apply text-lg font-semibold text-white md:text-xl;
+    }
+    .map-hero-lead {
+        @apply max-w-md text-xs text-slate-400 md:text-sm;
+    }
+
+    .map-filters {
+        @apply space-y-6 text-sm;
+    }
+    .map-filters-title {
+        @apply text-sm font-semibold text-white;
+    }
+    .map-filters-meta {
+        @apply mt-2 text-xs text-slate-400;
+    }
+    .map-filters-chips {
+        @apply mt-3 flex flex-wrap gap-2;
+    }
+    .map-filters-clear {
+        @apply mt-2 block text-xs text-orange-400 transition hover:text-orange-300;
+    }
+    .map-filters-section {
+        @apply space-y-3;
+    }
+    .map-filters-subtitle {
+        @apply text-xs font-semibold uppercase tracking-wide text-slate-400;
+    }
+    .map-filters-label {
+        @apply flex items-center gap-2 text-xs text-slate-200;
+    }
+    .map-filters-checkbox {
+        @apply h-3 w-3 rounded border-white/30 bg-transparent text-orange-500;
+    }
+    .map-filters-radio {
+        @apply h-3 w-3 border-white/30 text-orange-500;
+    }
+    .map-filters-more {
+        @apply text-xs text-orange-400 transition hover:text-orange-300;
+    }
+
+    .map-results {
+        @apply space-y-4 text-sm text-slate-300;
+    }
+    .map-results-meta {
+        @apply text-xs text-slate-400;
+    }
+    .map-results-list {
+        @apply space-y-3;
+    }
+    .map-result-card {
+        @apply rounded-xl border border-white/10 bg-white/5 p-4;
+    }
+    .map-result-title {
+        @apply text-sm font-semibold text-white;
+    }
+    .map-result-location {
+        @apply mt-1 text-xs text-slate-400;
+    }
+    .map-result-date {
+        @apply mt-2 text-xs text-slate-500;
+    }
+    .map-results-empty {
+        @apply rounded-xl border border-white/10 bg-white/5 px-4 py-10 text-center text-xs text-slate-400;
+    }
+
+    .map-card {
+        @apply space-y-3;
+    }
+    .map-card-shell {
+        @apply overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.35)];
+    }
+    .map-card-frame {
+        @apply relative h-[520px];
+    }
+    .map-canvas {
+        @apply h-full w-full;
+    }
+    .map-zoom {
+        @apply absolute left-3 top-3 flex flex-col overflow-hidden rounded-lg border border-white/10 bg-black/60 text-white;
+    }
+    .map-zoom-button {
+        @apply h-8 w-8 text-lg;
+    }
+    .map-zoom-divider {
+        @apply h-px w-full bg-white/10;
+    }
+    .map-attribution {
+        @apply absolute bottom-2 right-2 text-[10px] text-slate-300;
     }
 }
 

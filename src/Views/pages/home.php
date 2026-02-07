@@ -43,8 +43,8 @@ $container = "container-ce";
     ];
     foreach ($cats as [$key, $icon, $label]): ?>
       <button type="button" onclick="filterByCategory('<?= $key ?>')" class="cat-btn">
-        <span class="text-xl"><?= $icon ?></span>
-        <span class="text-sm"><?= $label ?></span>
+        <span class="cat-icon"><?= $icon ?></span>
+        <span class="cat-label"><?= $label ?></span>
       </button>
     <?php endforeach;
     ?>
