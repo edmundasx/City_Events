@@ -1,4 +1,10 @@
 <?php
+declare(strict_types=1);
+
+namespace App\Repositories;
+
+use DateTimeImmutable;
+use PDO;
 
 final class EventRepository
 {

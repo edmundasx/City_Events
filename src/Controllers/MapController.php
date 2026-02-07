@@ -7,10 +7,15 @@ final class MapController
 {
     public function index(array $params = []): void
     {
-        // If you already compute $base in layout/header, remove this.
-        $base = "/cityevents/public";
+        // Base path like "/cityevents/public" (works behind index.php front controller)
+        $base = rtrim(dirname($_SERVER["SCRIPT_NAME"] ?? ""), "/");
+        if ($base === "" || $base === ".") {
+            $base = "/cityevents/public"; // fallback if server vars are weird
+        }
 
-        // TODO: Replace with DB fetch. For map markers you need lat/lng.
+        $title = "Žemėlapis";
+
+        // Provide ALL data your partials might rely on (so they can't silently output nothing)
         $events = [
             [
                 "id" => 1,
@@ -28,11 +33,35 @@ final class MapController
             ],
         ];
 
-        // Your layout probably expects these:
-        $title = "Žemėlapis";
-        $view = __DIR__ . "/../Views/pages/map.php";
+        $breadcrumbs = [
+            ["label" => "Renginiai", "href" => $base . "/events"],
+            ["label" => "Žemėlapis", "href" => $base . "/map"],
+        ];
 
-        // If your app already includes a main layout file:
-        require __DIR__ . "/../Views/layouts/main.php";
+        $filters = [
+            "q" => (string) ($params["q"] ?? ""),
+            "category" => (string) ($params["category"] ?? ""),
+            "date" => (string) ($params["date"] ?? ""),
+            "district" => (string) ($params["district"] ?? ""),
+        ];
+
+        // Paths (fail hard if wrong — otherwise you get "empty main" confusion)
+        $view = realpath(__DIR__ . "/../Views/pages/map.php");
+        $layout = realpath(__DIR__ . "/../Views/layouts/main.php");
+
+        if ($view === false) {
+            http_response_code(500);
+            throw new \RuntimeException(
+                "View not found: src/Views/pages/map.php",
+            );
+        }
+        if ($layout === false) {
+            http_response_code(500);
+            throw new \RuntimeException(
+                "Layout not found: src/Views/layouts/main.php",
+            );
+        }
+
+        require $layout;
     }
 }

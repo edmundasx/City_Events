@@ -1,10 +1,10 @@
-Options -Indexes
 RewriteEngine On
+RewriteBase /cityevents/
 
-# If the requested thing is a real file/dir in project root, serve it
+# Don't rewrite real files/folders
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Otherwise, send everything into /public
-RewriteRule ^(.*)$ public/$1 [L]
+# Send everything except /public to /public
+RewriteRule !^public/ public/$0 [L]

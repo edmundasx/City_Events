@@ -1,10 +1,12 @@
 Options -Indexes
 RewriteEngine On
 
-# If the requested thing is a real file/dir in project root, serve it
+RewriteBase /cityevents/public/
+
+# Serve real files/folders directly
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Otherwise, send everything into /public
-RewriteRule ^(.*)$ public/$1 [L]
+# Everything else -> /public/index.php
+RewriteRule ^ index.php [L,QSA]
