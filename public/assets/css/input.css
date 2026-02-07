@@ -243,6 +243,9 @@
     .map-filters-chips {
         @apply mt-3 flex flex-wrap gap-2;
     }
+    .map-filters-chip {
+        @apply rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] text-slate-200 transition hover:border-orange-500/60 hover:text-white;
+    }
     .map-filters-clear {
         @apply mt-2 block text-xs text-orange-400 transition hover:text-orange-300;
     }

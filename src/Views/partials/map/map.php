@@ -13,7 +13,10 @@ $mapEvents = array_map(static function ($e) {
         "lat" => isset($e["lat"]) ? (float) $e["lat"] : null,
         "lng" => isset($e["lng"]) ? (float) $e["lng"] : null,
         "date" => (string) ($e["event_date"] ?? ""),
-        "price" => $e["price"] ?? null,
+        "category" => (string) ($e["category"] ?? ""),
+        "district" => (string) ($e["district"] ?? ""),
+        "price_eur" => isset($e["price_eur"]) ? (float) $e["price_eur"] : null,
+        "is_free" => (bool) ($e["is_free"] ?? false),
         "cover" => (string) ($e["cover_image"] ?? ""),
     ];
 }, $events);

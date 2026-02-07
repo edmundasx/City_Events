@@ -6,10 +6,21 @@
     <?php if (!empty($events)): ?>
         <div class="map-results-list">
             <?php foreach ($events as $event): ?>
+                <?php
+                $category = (string) ($event["category"] ?? "");
+                $district = (string) ($event["district"] ?? "");
+                $date = (string) ($event["event_date"] ?? ($event["date"] ?? ""));
+                $isFree = (bool) ($event["is_free"] ?? false);
+                $priceType = $isFree ? "free" : "paid";
+                ?>
                 <article
                     class="map-result-card"
                     data-event-card="1"
                     data-event-id="<?= htmlspecialchars((string) ($event["id"] ?? "")) ?>"
+                    data-category="<?= htmlspecialchars($category) ?>"
+                    data-district="<?= htmlspecialchars($district) ?>"
+                    data-price="<?= htmlspecialchars($priceType) ?>"
+                    data-date="<?= htmlspecialchars($date) ?>"
                 >
                     <h3 class="map-result-title">
                         <?= htmlspecialchars($event["title"] ?? "Renginys") ?>
@@ -27,6 +38,9 @@
                     </p>
                 </article>
             <?php endforeach; ?>
+        </div>
+        <div id="resultsEmpty" class="map-results-empty" hidden>
+            Pagal pasirinktus filtrus renginių nėra.
         </div>
     <?php else: ?>
         <div class="map-results-empty">
