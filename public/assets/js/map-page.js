@@ -169,8 +169,11 @@ let map;
 let markersLayer;
 
 function initMap() {
+  if (typeof window.L === "undefined") return;
+  const mapEl = document.getElementById("map");
+  if (!mapEl) return;
   const vilnius = [54.6872, 25.2797];
-  map = L.map("map").setView(vilnius, 12);
+  map = L.map(mapEl).setView(vilnius, 12);
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
@@ -181,6 +184,7 @@ function initMap() {
 }
 
 function renderMarkers(events) {
+  if (!markersLayer) return;
   markersLayer.clearLayers();
 
   const withCoords = events.filter(

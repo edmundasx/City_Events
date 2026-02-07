@@ -1,12 +1,16 @@
-<section class="space-y-4 text-sm text-slate-300">
-    <p class="text-xs text-slate-400">Rasta <?= isset($events)
+<section id="resultsWrap" class="space-y-4 text-sm text-slate-300">
+    <p class="text-xs text-slate-400">Rasta <span id="resultCount"><?= isset($events)
         ? count($events)
-        : 0 ?> renginių</p>
+        : 0 ?></span> renginių</p>
 
     <?php if (!empty($events)): ?>
         <div class="space-y-3">
             <?php foreach ($events as $event): ?>
-                <article class="rounded-xl border border-white/10 bg-white/5 p-4">
+                <article
+                    class="rounded-xl border border-white/10 bg-white/5 p-4"
+                    data-event-card="1"
+                    data-event-id="<?= htmlspecialchars((string) ($event["id"] ?? "")) ?>"
+                >
                     <h3 class="text-sm font-semibold text-white">
                         <?= htmlspecialchars($event["title"] ?? "Renginys") ?>
                     </h3>

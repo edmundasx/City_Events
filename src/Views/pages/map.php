@@ -31,3 +31,10 @@ foreach ($required as $name) {
         </div>
     </div>
 </section>
+
+<script>
+    window.__MAP_EVENTS__ = <?= json_encode(
+        $events ?? [],
+        JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP,
+    ) ?>;
+</script>
