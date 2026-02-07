@@ -19,9 +19,10 @@
                     </p>
                     <p class="mt-2 text-xs text-slate-500">
                         <?= htmlspecialchars(
-                            ($event["event_date"] ?? "") .
+                            ($event["date"] ?? ($event["event_date"] ?? "")) .
                                 " " .
-                                ($event["event_time"] ?? ""),
+                                ($event["time"] ??
+                                    ($event["event_time"] ?? "")),
                         ) ?>
                     </p>
                 </article>

@@ -2,37 +2,23 @@
 declare(strict_types=1);
 
 namespace App\Controllers;
-
+use App\Core\Db;
+use App\Repositories\EventRepository;
 final class MapController
 {
     public function index(array $params = []): void
     {
         // Base path like "/cityevents/public" (works behind index.php front controller)
         $base = rtrim(dirname($_SERVER["SCRIPT_NAME"] ?? ""), "/");
-        if ($base === "" || $base === ".") {
-            $base = "/cityevents/public"; // fallback if server vars are weird
+        if ($base === "" || $base === "." || $base === "/") {
+            $base = "";
         }
-
         $title = "Žemėlapis";
 
         // Provide ALL data your partials might rely on (so they can't silently output nothing)
-        $events = [
-            [
-                "id" => 1,
-                "title" => "Vasaros muzikos festivalis",
-                "location" => "Vingio parkas, Vilnius",
-                "event_date" => "2026-02-01",
-                "event_time" => "18:00",
-                "price_eur" => 0,
-                "is_free" => true,
-                "category" => "music",
-                "district" => "Naujamiestis",
-                "lat" => 54.6879,
-                "lng" => 25.2355,
-                "cover_image" => "",
-            ],
-        ];
 
+        $repo = new EventRepository(Db::pdo());
+        $events = $repo->mapEvents(true);
         $breadcrumbs = [
             ["label" => "Renginiai", "href" => $base . "/events"],
             ["label" => "Žemėlapis", "href" => $base . "/map"],
