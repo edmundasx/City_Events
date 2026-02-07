@@ -20,13 +20,13 @@ $mapEvents = array_map(static function ($e) {
 ?>
 
 
-<section class="space-y-3">
-    <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-[0_10px_40px_rgba(0,0,0,0.35)]">
-        <div class="relative h-[520px]">
+<section class="map-card">
+    <div class="map-card-shell">
+        <div class="map-card-frame">
             <!-- Leaflet will render into this -->
             <div
                 id="ce-map"
-                class="h-full w-full"
+                class="map-canvas"
                 data-events='<?= json_encode(
                     $mapEvents,
                     JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP,
@@ -34,13 +34,13 @@ $mapEvents = array_map(static function ($e) {
             ></div>
 
             <!-- Custom zoom controls -->
-            <div class="absolute left-3 top-3 flex flex-col overflow-hidden rounded-lg border border-white/10 bg-black/60 text-white">
-                <button id="ce-zoom-in" type="button" class="h-8 w-8 text-lg" aria-label="Zoom in">+</button>
-                <div class="h-px w-full bg-white/10"></div>
-                <button id="ce-zoom-out" type="button" class="h-8 w-8 text-lg" aria-label="Zoom out">−</button>
+            <div class="map-zoom">
+                <button id="ce-zoom-in" type="button" class="map-zoom-button" aria-label="Zoom in">+</button>
+                <div class="map-zoom-divider"></div>
+                <button id="ce-zoom-out" type="button" class="map-zoom-button" aria-label="Zoom out">−</button>
             </div>
 
-            <div class="absolute bottom-2 right-2 text-[10px] text-slate-300">
+            <div class="map-attribution">
                 © OpenStreetMap contributors | Leaflet
             </div>
         </div>

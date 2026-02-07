@@ -12,7 +12,7 @@
         <a class="nav-link" href="<?= $base ?>/home#help">Pagalba</a>
       </nav>
 
-      <div class="flex items-center gap-2">
+      <div class="header-actions">
         <a class="btn-outline" href="<?= $base ?>/login">Prisijungti</a>
         <a class="btn-primary" href="<?= $base ?>/signup">Registruotis</a>
       </div>

@@ -1,12 +1,12 @@
-<footer class="bg-white border-t border-slate-200">
-  <div class="max-w-[1200px] mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-2">
-    <p class="text-sm text-slate-500">
+<footer class="site-footer">
+  <div class="footer-container">
+    <p class="footer-text">
       © <?= date("Y") ?> City Events. Visos teisės saugomos.
     </p>
 
-    <div class="flex gap-4 text-sm">
-      <a href="#help" class="text-slate-500 hover:text-brand transition-colors no-underline">Pagalba</a>
-      <a href="#create" class="text-slate-500 hover:text-brand transition-colors no-underline">Sukurti renginį</a>
+    <div class="footer-links">
+      <a href="#help" class="footer-link">Pagalba</a>
+      <a href="#create" class="footer-link">Sukurti renginį</a>
     </div>
   </div>
 

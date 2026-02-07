@@ -1,167 +1,167 @@
-<aside class="space-y-6 text-sm">
+<aside class="map-filters">
     <div>
-        <h2 class="text-sm font-semibold text-white">Filtrai</h2>
-        <p id="activeFiltersMeta" class="mt-2 text-xs text-slate-400">0 filtrų taikoma</p>
-        <div id="activeChips" class="mt-3 flex flex-wrap gap-2"></div>
+        <h2 class="map-filters-title">Filtrai</h2>
+        <p id="activeFiltersMeta" class="map-filters-meta">0 filtrų taikoma</p>
+        <div id="activeChips" class="map-filters-chips"></div>
         <button
             id="clearAllBtn"
             type="button"
-            class="mt-2 block text-xs text-orange-400 transition hover:text-orange-300"
+            class="map-filters-clear"
         >
             Išvalyti viską
         </button>
     </div>
 
-    <div class="space-y-3">
-        <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-400">Kategorija</h3>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+    <div class="map-filters-section">
+        <h3 class="map-filters-subtitle">Kategorija</h3>
+        <label class="map-filters-label">
             <input
                 type="checkbox"
                 name="category"
                 value="business"
-                class="h-3 w-3 rounded border-white/30 bg-transparent text-orange-500"
+                class="map-filters-checkbox"
             />
             Verslas
         </label>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+        <label class="map-filters-label">
             <input
                 type="checkbox"
                 name="category"
                 value="food"
-                class="h-3 w-3 rounded border-white/30 bg-transparent text-orange-500"
+                class="map-filters-checkbox"
             />
             Maistas ir gėrimai
         </label>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+        <label class="map-filters-label">
             <input
                 type="checkbox"
                 name="category"
                 value="health"
-                class="h-3 w-3 rounded border-white/30 bg-transparent text-orange-500"
+                class="map-filters-checkbox"
             />
             Sveikata
         </label>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+        <label class="map-filters-label">
             <input
                 type="checkbox"
                 name="category"
                 value="music"
-                class="h-3 w-3 rounded border-white/30 bg-transparent text-orange-500"
+                class="map-filters-checkbox"
             />
             Muzika
         </label>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+        <label class="map-filters-label">
             <input
                 type="checkbox"
                 name="category"
                 value="art"
-                class="h-3 w-3 rounded border-white/30 bg-transparent text-orange-500"
+                class="map-filters-checkbox"
             />
             Menas
         </label>
-        <button class="text-xs text-orange-400 transition hover:text-orange-300">
+        <button class="map-filters-more">
             Rodyti daugiau
         </button>
     </div>
 
-    <div class="space-y-3">
-        <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-400">Data</h3>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+    <div class="map-filters-section">
+        <h3 class="map-filters-subtitle">Data</h3>
+        <label class="map-filters-label">
             <input
                 type="radio"
                 name="dateRange"
                 value="today"
-                class="h-3 w-3 border-white/30 text-orange-500"
+                class="map-filters-radio"
             />
             Šiandien
         </label>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+        <label class="map-filters-label">
             <input
                 type="radio"
                 name="dateRange"
                 value="tomorrow"
-                class="h-3 w-3 border-white/30 text-orange-500"
+                class="map-filters-radio"
             />
             Rytoj
         </label>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+        <label class="map-filters-label">
             <input
                 type="radio"
                 name="dateRange"
                 value="weekend"
-                class="h-3 w-3 border-white/30 text-orange-500"
+                class="map-filters-radio"
                 checked
             />
             Šį savaitgalį
         </label>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+        <label class="map-filters-label">
             <input
                 type="radio"
                 name="dateRange"
                 value="custom"
-                class="h-3 w-3 border-white/30 text-orange-500"
+                class="map-filters-radio"
             />
             Pasirinkti datą...
         </label>
     </div>
 
-    <div class="space-y-3">
-        <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-400">Rajonas</h3>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+    <div class="map-filters-section">
+        <h3 class="map-filters-subtitle">Rajonas</h3>
+        <label class="map-filters-label">
             <input
                 type="checkbox"
                 name="district"
                 value="Senamiestis"
-                class="h-3 w-3 rounded border-white/30 bg-transparent text-orange-500"
+                class="map-filters-checkbox"
             />
             Senamiestis
         </label>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+        <label class="map-filters-label">
             <input
                 type="checkbox"
                 name="district"
                 value="Šnipiškės"
-                class="h-3 w-3 rounded border-white/30 bg-transparent text-orange-500"
+                class="map-filters-checkbox"
             />
             Šnipiškės
         </label>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+        <label class="map-filters-label">
             <input
                 type="checkbox"
                 name="district"
                 value="Naujamiestis"
-                class="h-3 w-3 rounded border-white/30 bg-transparent text-orange-500"
+                class="map-filters-checkbox"
             />
             Naujamiestis
         </label>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+        <label class="map-filters-label">
             <input
                 type="checkbox"
                 name="district"
                 value="Užupis"
-                class="h-3 w-3 rounded border-white/30 bg-transparent text-orange-500"
+                class="map-filters-checkbox"
             />
             Užupis
         </label>
     </div>
 
-    <div class="space-y-3">
-        <h3 class="text-xs font-semibold uppercase tracking-wide text-slate-400">Kaina</h3>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+    <div class="map-filters-section">
+        <h3 class="map-filters-subtitle">Kaina</h3>
+        <label class="map-filters-label">
             <input
                 type="checkbox"
                 name="price"
                 value="free"
-                class="h-3 w-3 rounded border-white/30 bg-transparent text-orange-500"
+                class="map-filters-checkbox"
             />
             Nemokami
         </label>
-        <label class="flex items-center gap-2 text-xs text-slate-200">
+        <label class="map-filters-label">
             <input
                 type="checkbox"
                 name="price"
                 value="paid"
-                class="h-3 w-3 rounded border-white/30 bg-transparent text-orange-500"
+                class="map-filters-checkbox"
             />
             Mokami
         </label>
