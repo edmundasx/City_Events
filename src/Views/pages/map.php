@@ -49,6 +49,12 @@ foreach ($required as $name) {
     </div>
 </section>
 
+<script>
+    window.__MAP_EVENTS__ = <?= json_encode(
+        $events ?? [],
+        JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP,
+    ) ?>;
+</script>
 <?php $base = $base ?? ""; ?>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">

@@ -31,6 +31,14 @@ final class MapController
             "district" => (string) ($params["district"] ?? ""),
         ];
 
+        $pageStyles = [
+            "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
+        ];
+        $pageScripts = [
+            "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+            $base . "/assets/js/map-page.js",
+        ];
+
         // Paths (fail hard if wrong — otherwise you get "empty main" confusion)
         $view = realpath(__DIR__ . "/../Views/pages/map.php");
         $layout = realpath(__DIR__ . "/../Views/layouts/main.php");
