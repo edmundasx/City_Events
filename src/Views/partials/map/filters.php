@@ -90,7 +90,6 @@
                 name="dateRange"
                 value="weekend"
                 class="map-filters-radio"
-                checked
             />
             Šį savaitgalį
         </label>
