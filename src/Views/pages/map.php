@@ -1,6 +1,23 @@
 <?php
 declare(strict_types=1);
 
+$events = $events ?? [];
+$base = $base ?? "";
+
+// map payload: keep it small and safe
+$mapEvents = array_map(static function ($e) {
+    return [
+        "id" => (int) ($e["id"] ?? 0),
+        "title" => (string) ($e["title"] ?? ""),
+        "location" => (string) ($e["location"] ?? ""),
+        "lat" => isset($e["lat"]) ? (float) $e["lat"] : null,
+        "lng" => isset($e["lng"]) ? (float) $e["lng"] : null,
+        "date" => (string) ($e["event_date"] ?? ""),
+        "price" => $e["price"] ?? null,
+        "cover" => (string) ($e["cover_image"] ?? ""),
+    ];
+}, $events);
+
 /**
  * VIEW ONLY (no layout, no header/footer).
  * Layout main.php already wraps this view inside <main> and includes header/footer.
@@ -31,3 +48,10 @@ foreach ($required as $name) {
         </div>
     </div>
 </section>
+
+<?php $base = $base ?? ""; ?>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="<?= $base ?>/assets/js/map-page.js"></script>
