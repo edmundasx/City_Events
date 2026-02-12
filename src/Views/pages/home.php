@@ -6,6 +6,12 @@ $container = "container-ce";
 ?>
 
 <section class="hero">
+  <div id="homeHeroMap" class="hero-map" aria-label="Renginių žemėlapis" data-events='<?= htmlspecialchars(
+      json_encode($events ?? [], JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP),
+      ENT_QUOTES,
+      "UTF-8",
+  ) ?>'></div>
+  <div class="hero-map-overlay"></div>
   <div class="hero-glow"></div>
 
   <div class="<?= $container ?> hero-inner">

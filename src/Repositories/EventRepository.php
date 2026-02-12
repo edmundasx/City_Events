@@ -17,9 +17,28 @@ final class EventRepository
         bool $onlyFuture = true,
     ): array {
         $futureClause = $onlyFuture ? "AND e.event_date >= NOW()" : "";
+        $columns = $this->eventColumns();
 
         $sql = "
-            SELECT e.id, e.title, e.location, e.event_date, e.price, e.cover_image
+            SELECT
+                e.id,
+                e.title,
+                e.location,
+                e.event_date,
+                e.price,
+                e.cover_image,
+                " .
+            $this->selectColumn($columns, "category") .
+            ",
+                " .
+            $this->selectColumn($columns, "district") .
+            ",
+                " .
+            $this->selectColumn($columns, "lat") .
+            ",
+                " .
+            $this->selectColumn($columns, "lng") .
+            "
             FROM events e
             WHERE e.status = 'approved'
             {$futureClause}
@@ -50,6 +69,10 @@ final class EventRepository
                 "location" => (string) $r["location"],
                 "price" => $priceLabel,
                 "image" => (string) ($r["cover_image"] ?? ""),
+                "category" => (string) ($r["category"] ?? ""),
+                "district" => (string) ($r["district"] ?? ""),
+                "lat" => isset($r["lat"]) ? (float) $r["lat"] : null,
+                "lng" => isset($r["lng"]) ? (float) $r["lng"] : null,
             ];
         }, $rows);
     }

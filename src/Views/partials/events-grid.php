@@ -5,6 +5,7 @@
 $events = $events ?? [];
 $gridId = $gridId ?? "eventsGrid";
 $gridClass = $gridClass ?? "events-grid";
+$gridExtraClass = $gridExtraClass ?? "";
 $emptyText = $emptyText ?? "Renginiai nerasti";
 $basePath = $basePath ?? "/events";
 
@@ -12,7 +13,7 @@ $basePath = $basePath ?? "/events";
 $e = static fn($v) => htmlspecialchars((string) $v, ENT_QUOTES, "UTF-8");
 ?>
 
-<div id="<?= $e($gridId) ?>" class="events-grid <?= $e($gridExtraClass) ?>">
+<div id="<?= $e($gridId) ?>" class="<?= $e($gridClass) ?> <?= $e($gridExtraClass) ?>">
   <?php if (empty($events)): ?>
     <div class="events-empty"><?= $e($emptyText) ?></div>
   <?php
@@ -68,9 +69,22 @@ $e = static fn($v) => htmlspecialchars((string) $v, ENT_QUOTES, "UTF-8");
       $loc = $event["location"] ?? "";
       $price = $event["price"] ?? "";
       $img = $event["image"] ?? "";
+      $category = $event["category"] ?? "";
+      $lat = $event["lat"] ?? null;
+      $lng = $event["lng"] ?? null;
       ?>
 
-      <a class="event-card" href="<?= $e($href) ?>">
+      <a
+        class="event-card"
+        href="<?= $e($href) ?>"
+        data-event-card="1"
+        data-event-id="<?= $e($id) ?>"
+        data-title="<?= $e($title) ?>"
+        data-location="<?= $e($loc) ?>"
+        data-category="<?= $e($category) ?>"
+        data-lat="<?= $e($lat === null ? "" : (string) $lat) ?>"
+        data-lng="<?= $e($lng === null ? "" : (string) $lng) ?>"
+      >
         <div class="event-media">
           <?php if ($img !== ""): ?>
             <img class="event-image" src="<?= $e($img) ?>" alt="">
